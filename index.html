@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About – Mehdi Ibrahimov</title>
+  <meta name="description" content="About Mehdi Ibrahimov" />
+  <style>
+    :root{
+      --bg:#f5f7fb; --card:#fff; --line:#e5e7eb; --text:#111; --muted:#6b7280; --accent:#2563eb;
+      --radius:16px; --shadow:0 8px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);background:var(--bg)}
+    .wrap{max-width:900px;margin:40px auto;padding:0 16px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    header.card{padding:24px}
+    h1{margin:0 0 6px 0;font-size:32px}
+    .muted{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px}
+    @media (max-width: 720px){.grid{grid-template-columns:1fr}}
+    .section{padding:6px 20px 24px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef2ff;color:#3730a3;font-weight:600}
+    dl{display:grid;grid-template-columns:auto 1fr;gap:10px 14px;margin:0}
+    dt{font-weight:700}
+    dd{margin:0}
+    a{color:var(--accent);text-decoration:none}
+    .footer{padding:18px 20px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="card">
+      <h1>Mehdi Ibrahimov</h1>
+      <div class="muted">From Azerbaijan • Works at PashaPay</div>
+      <div style="margin-top:12px">
+        <span class="pill">About me</span>
+      </div>
+    </header>
+
+    <main class="card" style="margin-top:16px">
+      <div class="grid">
+        <section class="section">
+          <h2 style="margin:16px 0 10px 0;font-size:20px">Details</h2>
+          <dl>
+            <dt>Name</dt><dd>Mehdi Ibrahimov</dd>
+            <dt>Date of birth</dt><dd><time datetime="1993-12-15">15.12.1993</time></dd>
+            <dt>Age</dt><dd><span id="age">—</span> years</dd>
+            <dt>From</dt><dd>Azerbaijan</dd>
+            <dt>Work</dt><dd>PashaPay</dd>
+          </dl>
+        </section>
+
+        <section class="section">
+          <h2 style="margin:16px 0 10px 0;font-size:20px">About</h2>
+          <p>
+            Short bio goes here. Add a sentence or two about what you do,
+            what you’re interested in, and what you’re working on.
+          </p>
+
+          <h3 style="margin:18px 0 8px 0;font-size:18px">Contacts</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display:grid; gap:8px">
+            <li>📧 <a href="mailto:you@example.com">you@example.com</a></li>
+            <li>🔗 <a href="#">LinkedIn</a> • <a href="#">GitHub</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="footer">© <span id="year"></span> Mehdi Ibrahimov</div>
+    </main>
+  </div>
+
+  <script>
+    // Auto-calc age from DOB (15 Dec 1993)
+    (function(){
+      var dob = new Date(1993, 11, 15); // months: 0=Jan, 11=Dec
+      var today = new Date();
+      var age = today.getFullYear() - dob.getFullYear();
+      var m = today.getMonth() - dob.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+      document.getElementById('age').textContent = age;
+      document.getElementById('year').textContent = today.getFullYear();
+    })();
+  </script>
+</body>
+</html>
+
